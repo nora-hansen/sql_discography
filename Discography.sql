@@ -5,12 +5,13 @@ CREATE TABLE IF NOT EXISTS `SONGS`
         `COMPOSER` VARCHAR(32),
         `PROJ_DATE` DATE,
         `LAST_EXP` DATE,
-        `DAW` VARCHAR(16)
-        `ALBUM_ID` CHAR(6),
+        `DAW` VARCHAR(16),
         `IS_REMIX` BOOLEAN,
         `IS_REMAKE` BOOLEAN,
+        `COVER_ART` VARCHAR(256)
         `OG_ID` CHAR(6),
         `RELEASE_ID`CHAR(6),
+        `ALBUM_ID` CHAR(6),
     PRIMARY KEY ( `ID` )
     );
 
@@ -29,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `ALBUMS`
         `ID` CHAR(6) NOT NULL,
         `TITLE` VARCHAR(32),
         `RELEASE_DATE` DATE,
+        `COVER_ART` VARCHAR(256)
         `RELEASE_ID` CHAR(6),
     PRIMARY KEY ( `ID` )
     );
@@ -56,3 +58,18 @@ CREATE TABLE IF NOT EXISTS `SONG_VOCALIST`
     FOREIGN KEY ( `VOCALIST_ID` ) REFERENCES `VOCALISTS` ( `ID` )
         ON DELETE CASCADE
     )
+
+INSERT INTO SONGS VALUES(`S0001`, `gem`, `noriaki`, 2022-03-12, 2023-03-09, `Logic Pro`, 0, 0, ``, ``, ``);
+INSERT INTO SONGS VALUES(`S0002`, `gem_stone`, `noriaki`, 2022-09-03, 2023-10-07, `Logic Pro`, 1, 0, `S0001`, ``, ``);
+INSERT INTO SONGS VALUES(`S0003`, `sudo`, `noriaki`, 2022-01-16, 2023-04-13, `Logic Pro`, 0, 1, ``, ``, ``);
+INSERT INTO SONGS VALUES(`S0004`, `trash`, `noriaki`, 2023-01-16, 2023-01-17, `Logic Pro`, 0, 0, ``, ``, ``);
+
+INSERT INTO VOCALIST VALUES(`V0001`, `Rotten.ST`, `ChipSpeech`, 0, ``);
+INSERT INTO VOCALIST VALUES(`V0002`, `Yuma`, `Synthesizer V`, 1, ``);
+INSERT INTO VOCALIST VALUES(`V0003`, `Terminal 99`, `ChipSpeech`, 0, ``);
+INSERT INTO VOCALIST VALUES(`V0004`, `Kagamine Len`, `VOCALOID`, 0, `Asami Shimoda`);
+
+INSERT INTO SONG_VOCALIST VALUES (`SV0001`, `S0004`, `V0004`);
+INSERT INTO SONG_VOCALIST VALUES (`SV0002`, `S0001`, `V0001`);
+INSERT INTO SONG_VOCALIST VALUES (`SV0003`, `S0002`, `V0002`);
+INSERT INTO SONG_VOCALIST VALUES (`SV0004`, `S0003`, `V0003`);
