@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `SONGS`
         `DAW` VARCHAR(16),
         `IS_REMIX` BOOLEAN,
         `IS_REMAKE` BOOLEAN,
+        `IS_FINISHED` BOOLEAN,
         `COVER_ART` VARCHAR(256),
         `OG_ID` CHAR(6),
         `RELEASE_ID`CHAR(6),
@@ -59,10 +60,10 @@ CREATE TABLE IF NOT EXISTS `SONG_VOCALIST`
         ON DELETE CASCADE
     );
 
-INSERT INTO SONGS VALUES('S0001', 'gem', 'noriaki', 2022-03-12, 2023-03-09, 'Logic Pro', 0, 0, '', '', '', '');
-INSERT INTO SONGS VALUES('S0002', 'gem_stone', 'noriaki', 2022-09-03, 2023-10-07, 'Logic Pro', 1, 0, 'S0001', '', '', '');
-INSERT INTO SONGS VALUES('S0003', 'sudo', 'noriaki', 2022-01-16, 2023-04-13, 'Logic Pro', 0, 1, '', '', '', '');
-INSERT INTO SONGS VALUES('S0004', 'trash', 'noriaki', 2023-01-16, 2023-01-17, 'Logic Pro', 0, 0, '', '', '', '');
+INSERT INTO SONGS VALUES('S0001', 'gem', 'noriaki', 2022-03-12, 2023-03-09, 'Logic Pro', 0, 0, 1, '', '', '', '');
+INSERT INTO SONGS VALUES('S0002', 'gem_stone', 'noriaki', 2022-09-03, 2023-10-07, 'Logic Pro', 1, 0, 1, 'S0001', '', '', '');
+INSERT INTO SONGS VALUES('S0003', 'sudo', 'noriaki', 2022-01-16, 2023-04-13, 'Logic Pro', 0, 1, 1, '', '', '', '');
+INSERT INTO SONGS VALUES('S0004', 'trash', 'noriaki', 2023-01-16, 2023-01-17, 'Logic Pro', 0, 0, 1, '', '', '', '');
 
 INSERT INTO VOCALIST VALUES('V0001', 'Rotten.ST', 'ChipSpeech', 0, '');
 INSERT INTO VOCALIST VALUES('V0002', 'Yuma', 'Synthesizer V', 1, '');
