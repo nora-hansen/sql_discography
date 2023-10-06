@@ -16,27 +16,29 @@ CREATE TABLE IF NOT EXISTS `SONGS`
 
 CREATE TABLE IF NOT EXISTS `VOCALISTS`
     (
-        `ID` CHAR(6),
+        `ID` CHAR(6) NOT NULL,
         `NAME` VARCHAR(32),
         `SOFTWARE` VARCHAR(32),
         `IS_AI` BOOLEAN,
-        `VOICE_PROVIDER` VARCHAR(32)
+        `VOICE_PROVIDER` VARCHAR(32),
     PRIMARY KEY ( `ID` )
     )
 
 CREATE TABLE IF NOT EXISTS `ALBUMS`
     (
-        `ID` CHAR(6),
+        `ID` CHAR(6) NOT NULL,
         `TITLE` VARCHAR(32),
         `RELEASE_DATE` DATE,
-        `RELEASE_ID` CHAR(6)
+        `RELEASE_ID` CHAR(6),
     PRIMARY KEY ( `ID` )
     )
 
 CREATE TABLE IF NOT EXISTS `SONG_ALBUM`
     (
-        `ID` CHAR(6),
-        `ALBUM_ID` CHAR(6),
-        `SONG_ID` CHAR(6)
-    PRIMARY KEY ( `ID` )
+        `ID` CHAR(6) NOT NULL
+        `ALBUM_ID` CHAR(6) NOT NULL,
+        `SONG_ID` CHAR(6) NOT NULL,
+    PRIMARY KEY ( `ID` ),
+    FOREIGN KEY ( `ALBUM_ID` ) REFERENCES `ALBUMS` ( `ID` )
+        ON DELETE CASCADE
     )
