@@ -1,6 +1,8 @@
 # SQL Discography
 A database of my songs :)
 
+03/05/2024 UPDATE: This is an old project, but I'm gonna get back to it soon!
+
 ## Tables
 ### songs
 It has songs
